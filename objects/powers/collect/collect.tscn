@@ -1,32 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://objects/powers/redPower/redPower.gd" type="Script" id=1]
-[ext_resource path="res://objects/powers/redPower/redPower.png" type="Texture" id=2]
+[ext_resource path="res://objects/powers/collect/collect.gd" type="Script" id=1]
 [ext_resource path="res://objects/ballonText/ballonText.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="redPower" type="Node2D"]
+[node name="collect" type="Node2D" groups=["power"]]
 script = ExtResource( 1 )
 
 [node name="RedPower" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
 scale = Vector2( 2, 2 )
 z_index = -1
 z_as_relative = false
-texture = ExtResource( 2 )
 
-[node name="grabCollision" type="Area2D" parent="."]
+[node name="grabCollision" type="Area2D" parent="." groups=["power"]]
+position = Vector2( 0, -24 )
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="grabCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grabCollision" groups=["power"]]
 shape = SubResource( 1 )
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
 margin_left = -1.0
-margin_top = -16.0
+margin_top = -40.0
 margin_right = 63.0
-margin_bottom = 48.0
-Text = "E"
+margin_bottom = 24.0
+Text = "K"
 areaPath = NodePath("../grabCollision")

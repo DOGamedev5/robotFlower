@@ -1,6 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://entities/duckFormer/duckFormer.png" type="Texture" id=1]
+[ext_resource path="res://entities/robots/duckFormer/duckFormer.png" type="Texture" id=1]
+[ext_resource path="res://entities/robots/duckFormer/duckFormer.gd" type="Script" id=2]
+[ext_resource path="res://entities/robots/robotComponents/energySlot/energySlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://classes/statemachine/statemachine.gd" type="Script" id=4]
+[ext_resource path="res://entities/robots/duckFormer/states/OFF.gd" type="Script" id=5]
+[ext_resource path="res://entities/robots/duckFormer/states/ON.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 4 )
@@ -60,9 +65,12 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[node name="RigidBody2D" type="RigidBody2D"]
-mode = 1
-gravity_scale = 0.0
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 44, 28 )
+
+[node name="duckFormer" type="KinematicBody2D"]
+script = ExtResource( 2 )
+iconPath = NodePath("Control")
 
 [node name="DuckFormer" type="Sprite" parent="."]
 position = Vector2( 1, 19 )
@@ -86,3 +94,28 @@ shape = SubResource( 3 )
 anims/OFF = SubResource( 4 )
 anims/ON = SubResource( 5 )
 anims/RESET = SubResource( 6 )
+
+[node name="Control" parent="." instance=ExtResource( 3 )]
+margin_left = 16.0
+margin_top = -24.0
+margin_right = 16.0
+margin_bottom = -24.0
+areaPath = NodePath("../interaction")
+
+[node name="interaction" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction"]
+position = Vector2( -4, 4 )
+shape = SubResource( 7 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
+initialState = NodePath("OFF")
+
+[node name="OFF" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="ON" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )

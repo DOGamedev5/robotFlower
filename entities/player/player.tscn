@@ -55,3 +55,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grabber" groups=["player"]]
 position = Vector2( 0, -40 )
 shape = SubResource( 2 )
+
+[connection signal="area_entered" from="grabber" to="." method="_on_grabber_area_entered"]
+[connection signal="area_exited" from="grabber" to="." method="_on_grabber_area_exited"]

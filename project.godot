@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/flower/flower.gd"
 }, {
-"base": "Node",
+"base": "Resource",
 "class": "Power",
 "language": "GDScript",
 "path": "res://objects/powers/power.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "RobotClass",
+"language": "GDScript",
+"path": "res://entities/robots/robotComponents/robotClass.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Flower": "",
 "Power": "",
+"RobotClass": "",
 "State": "",
 "StateMachine": ""
 }
@@ -84,6 +90,16 @@ ui_down={
 jump={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+grab={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+drop={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
