@@ -6,9 +6,10 @@ export var cameraLimitsMax := Vector2(10000000, 10000000)
 onready var camera := $Camera2D
 onready var stateMachine := $StateMachine
 
-const VELOCITY := 200
-const GRAVITYFORCE := 13
-const JUMPFORCE := -400
+const VELOCITY := 300
+const GRAVITYFORCE := 20
+const MAXGRAVITY := 450
+const JUMPFORCE := -600
 
 var motion : Vector2
 
@@ -25,5 +26,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 
 func gravity():
-	if not is_on_floor():
+	if not is_on_floor() and motion.y < MAXGRAVITY:
 		motion.y += GRAVITYFORCE
+		if motion.y > MAXGRAVITY:
+			motion.y = MAXGRAVITY

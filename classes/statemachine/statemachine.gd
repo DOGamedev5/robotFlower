@@ -38,10 +38,10 @@ func changeState(newState : String):
 		currentState.exit()
 	
 	if not states.has(newState):
-		push_warning("não existe state '{newState}' na stateMachine, chamado por '{lastState}'".format({
+		push_error("não existe state '{newState}' na stateMachine, chamado por '{lastState}'".format({
 			"newState" : newState,
 			"lastState" : currentState.name
 		}))
-		
+	
 	currentState = states[newState]
 	currentState.enter()
