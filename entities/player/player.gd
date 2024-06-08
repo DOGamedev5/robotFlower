@@ -16,10 +16,11 @@ const MAXGRAVITY := 450
 const JUMPFORCE := -600
 
 var motion : Vector2
-
 var itemToGrab : Array
 var robotToInteract
 var grabbedItem : Power
+
+signal death
 
 func _ready():
 	camera.limit_left = cameraLimitsMin.x
@@ -84,3 +85,5 @@ func _on_grabber_area_exited(area):
 	elif area.get_parent() is RobotClass:
 		robotToInteract = null
 
+func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("death")

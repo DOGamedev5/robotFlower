@@ -3,6 +3,7 @@ extends State
 
 func enter():
 	parent.motion.y = parent.JUMPFORCE
+	parent.playback.travel("JUMP")
 
 func processPhysics(_delta):
 	parent.gravity()

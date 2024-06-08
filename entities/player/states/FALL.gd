@@ -1,7 +1,8 @@
 extends State
 
 
-
+func enter():
+	parent.playback.travel("JUMP")
 
 func processPhysics(_delta):
 	parent.gravity()
