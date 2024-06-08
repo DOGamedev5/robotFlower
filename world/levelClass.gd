@@ -24,6 +24,7 @@ func _ready():
 	
 	for flower in flowers:
 		var _2 = get_node(flower).connect("captured", self, "FlowerGet")
+		totalFlowers += 1
 	
 	flowerCaptured = 0
 

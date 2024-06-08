@@ -9,6 +9,7 @@ onready var animationTree := $AnimationTree
 onready var playback = animationTree["parameters/playback"]
 
 onready var collect := preload("res://objects/powers/collect/collect.tscn")
+onready var stepSfx := preload("res://audio/sfx/step.wav")
 
 const VELOCITY := 300
 const GRAVITYFORCE := 20
@@ -19,6 +20,7 @@ var motion : Vector2
 var itemToGrab : Array
 var robotToInteract
 var grabbedItem : Power
+var onStair := false
 
 signal death
 
@@ -66,24 +68,33 @@ func dropItem():
 	grabbedItem = null
 
 func gravity():
-	if not is_on_floor() and motion.y < MAXGRAVITY:
+	if motion.y < MAXGRAVITY:
 		motion.y += GRAVITYFORCE
 		if motion.y > MAXGRAVITY:
 			motion.y = MAXGRAVITY
+
+func step():
+	AudioManager.playEffect(stepSfx)
 
 func _on_grabber_area_entered(area):
 	if area.is_in_group("power"):
 		itemToGrab.append(area)
 	
-	elif area.get_parent() is RobotClass:
+	elif area.is_in_group("robot"):
 		robotToInteract = area.get_parent()
+	
+	if area.is_in_group("stair"):
+		onStair = true
 
 func _on_grabber_area_exited(area):
 	if area.is_in_group("power"):
 		itemToGrab.remove(itemToGrab.find(area))
 	
-	elif area.get_parent() is RobotClass:
+	elif area.is_in_group("robot"):
 		robotToInteract = null
+	
+	if area.is_in_group("stair"):
+		onStair = false
 
 func _on_VisibilityNotifier2D_screen_exited():
 	emit_signal("death")

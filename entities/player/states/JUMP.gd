@@ -1,9 +1,11 @@
 extends State
 
+onready var jumpSfx = preload("res://audio/sfx/jump.wav")
 
 func enter():
 	parent.motion.y = parent.JUMPFORCE
 	parent.playback.travel("JUMP")
+	AudioManager.playEffect(jumpSfx)
 
 func processPhysics(_delta):
 	parent.gravity()
@@ -18,5 +20,8 @@ func processState():
 			return "WALK"
 			
 		return "IDLE"
+	
+	elif Input.is_action_pressed("ui_up") and parent.onStair:
+		return "STAIR"
 	
 	return null

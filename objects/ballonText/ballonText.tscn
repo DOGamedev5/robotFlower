@@ -18,9 +18,9 @@ rect_scale = Vector2( 2, 2 )
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -5.5
-margin_top = -22.0
-margin_right = 7.5
+margin_left = -6.0
+margin_top = -20.0
+margin_right = 7.0
 margin_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0

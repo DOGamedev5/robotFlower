@@ -18,6 +18,9 @@ func processState():
 	elif not parent.is_on_floor():
 		return "FALL"
 	
+	elif Input.is_action_just_pressed("ui_up") and parent.onStair:
+		return "STAIR"
+	
 	return null
 
 func exit():

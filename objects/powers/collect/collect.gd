@@ -9,3 +9,4 @@ func _ready():
 func changeItem(item):
 	powerType = item
 	$RedPower.texture = powerType.texture
+
