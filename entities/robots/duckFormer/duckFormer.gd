@@ -8,4 +8,5 @@ func _physics_process(delta):
 	stateMachine.processPhysics(delta)
 	stateMachine.processState()
 	
-	motion = move_and_slide(motion)
+	motion.x = move_and_slide(motion).x
+	

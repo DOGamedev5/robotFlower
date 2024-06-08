@@ -2,7 +2,7 @@ extends State
 
 
 func enter():
-	pass
+	parent.playback.travel("WALK")
 
 func processPhysics(_delta):
 	parent.gravity()

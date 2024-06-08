@@ -5,6 +5,8 @@ export var cameraLimitsMax := Vector2(10000000, 10000000)
 
 onready var camera := $Camera2D
 onready var stateMachine := $StateMachine
+onready var animationTree := $AnimationTree
+onready var playback = animationTree["parameters/playback"]
 
 onready var collect := preload("res://objects/powers/collect/collect.tscn")
 
@@ -38,6 +40,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("drop") and grabbedItem:
 		dropItem()
+	
+	if motion.x:
+		$sprite.flip_h = motion.x < 0 
 	
 	motion = move_and_slide(motion, Vector2.UP)
 

@@ -1,12 +1,12 @@
 extends State
 
 
-
 func enter():
 	parent.motion.x = 0
 
 func processPhysics(_delta):
 	parent.gravity()
+	parent.playback.travel("IDLE")
 
 func processState():
 	if Input.get_axis("ui_left", "ui_right"):

@@ -10,8 +10,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 4 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 16, 13 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 28, 8 )
@@ -83,8 +83,8 @@ position = Vector2( -20, 4 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 0 )
-shape = SubResource( 2 )
+position = Vector2( 16, -3 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( -4, 16 )
