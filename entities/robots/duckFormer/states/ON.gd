@@ -5,7 +5,7 @@ func enter():
 	$"../../AnimationPlayer".play("ON")
 	
 func processPhysics(_delta):
-	parent.motion.x = 100
+	parent.motion.x = 120 * parent.direction
 
 func processState():
 	if parent.power == null:

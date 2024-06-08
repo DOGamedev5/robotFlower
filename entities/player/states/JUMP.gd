@@ -12,6 +12,8 @@ func processPhysics(_delta):
 	parent.motion.x = Input.get_axis("ui_left", "ui_right") * parent.VELOCITY
 
 func processState():
+	
+	
 	if parent.motion.y > 0:
 		return "FALL"
 	

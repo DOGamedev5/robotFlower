@@ -11,6 +11,7 @@
 
 [node name="LevelClass" type="Node2D"]
 script = ExtResource( 1 )
+nextLevel = "res://world/levels/level4.tscn"
 playerPath = NodePath("player")
 flowers = [ NodePath("flower"), NodePath("flower2") ]
 
