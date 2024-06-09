@@ -20,11 +20,13 @@ func swapPower(newPower):
 	power = newPower
 	
 	if power:
-		icon.setTexture(power.texture)
+		if icon:
+			icon.setTexture(power.texture)
 		if not powerReturn:
 			AudioManager.playEffect(on)
 	else:
-		icon.setTexture(null)
+		if icon:
+			icon.setTexture(null)
 		if powerReturn:
 			AudioManager.playEffect(off)
 		

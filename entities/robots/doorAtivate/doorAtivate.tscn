@@ -1,13 +1,95 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://entities/robots/robotComponents/robotClass.gd" type="Script" id=1]
+[ext_resource path="res://entities/robots/robotComponents/energySlot/energySlot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/robots/doorAtivate/ativation.png" type="Texture" id=2]
+[ext_resource path="res://classes/statemachine/statemachine.gd" type="Script" id=3]
+[ext_resource path="res://entities/robots/doorAtivate/states/OFF.gd" type="Script" id=4]
+[ext_resource path="res://entities/robots/doorAtivate/doorAtivate.gd" type="Script" id=5]
+[ext_resource path="res://entities/robots/doorAtivate/states/ON.gd" type="Script" id=6]
 
-[node name="RobotClass" type="KinematicBody2D"]
-script = ExtResource( 1 )
+[sub_resource type="Animation" id=1]
+resource_name = "OFF"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ativation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "ON"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ativation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ativation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 40, 16 )
+
+[node name="ativation" type="KinematicBody2D"]
+script = ExtResource( 5 )
 
 [node name="Ativation" type="Sprite" parent="."]
 position = Vector2( 0, -14 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/OFF = SubResource( 1 )
+anims/ON = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="." groups=["robot"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 4 )
+
+[node name="Control" parent="." instance=ExtResource( 1 )]
+margin_top = -32.0
+margin_bottom = -32.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+initialState = NodePath("OFF")
+
+[node name="OFF" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="ON" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
