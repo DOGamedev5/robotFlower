@@ -6,7 +6,6 @@ func _ready():
 	if powerType:
 		$RedPower.texture = powerType.texture
 
-func changeItem(item):
-	powerType = item
+func updateTexture():
 	$RedPower.texture = powerType.texture
 

@@ -1,0 +1,307 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/abaddon/Abaddon Light.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/button.tres" type="Theme" id=2]
+[ext_resource path="res://world/credits.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0.0705882, 0.0392157, 0.101961, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0.0705882, 0.0392157, 0.101961, 1 )
+font_data = ExtResource( 1 )
+
+[node name="credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -465.0
+margin_top = -245.0
+margin_right = 465.0
+margin_bottom = 245.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 930.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Developers"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 58.0
+margin_right = 930.0
+margin_bottom = 94.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "music:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "RAF"
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 98.0
+margin_right = 930.0
+margin_bottom = 134.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Sound Effects:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "RAF"
+valign = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 138.0
+margin_right = 930.0
+margin_bottom = 174.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Programer:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer3"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "DOGael"
+valign = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 178.0
+margin_right = 930.0
+margin_bottom = 214.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "game Designer:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer4"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "DOGael"
+valign = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 218.0
+margin_right = 930.0
+margin_bottom = 254.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Pixel Artist:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer5"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "DOGael"
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 258.0
+margin_right = 930.0
+margin_bottom = 274.0
+custom_constants/separation = 16
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 278.0
+margin_right = 930.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Fonts"
+align = 1
+valign = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 336.0
+margin_right = 930.0
+margin_bottom = 372.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer6"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "QuinqueFive:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer6"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer6"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "GGbot.net (itch.io)"
+valign = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 376.0
+margin_right = 930.0
+margin_bottom = 412.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer7"]
+margin_right = 459.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.866667, 0.14902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "abaddon:"
+align = 2
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer7"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 463.0
+margin_right = 467.0
+margin_bottom = 36.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer7"]
+margin_left = 471.0
+margin_right = 930.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "nathan scott (itch.io)"
+valign = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 416.0
+margin_right = 930.0
+margin_bottom = 432.0
+custom_constants/separation = 16
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+margin_top = 436.0
+margin_right = 930.0
+margin_bottom = 490.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "thanks for playing!"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+margin_left = 32.0
+margin_top = 40.0
+margin_right = 168.0
+margin_bottom = 88.0
+theme = ExtResource( 2 )
+text = "Exit"
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

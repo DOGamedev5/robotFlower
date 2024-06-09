@@ -25,4 +25,4 @@ func processState():
 	return null
 
 func exit():
-	AudioManager.playEffect(fallSfx)
+	AudioManager.playEffect(fallSfx, 1, 0.6)

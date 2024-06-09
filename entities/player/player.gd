@@ -55,22 +55,23 @@ func _physics_process(delta):
 	
 	countFlowers.text = "{0}/{1}".format([get_parent().flowerCaptured, get_parent().totalFlowers])
 	
+	if grabbedItem != null:
+		icon.texture = grabbedItem.texture
+	else:
+		icon.texture = null
+	
 	jumpDetect()
 	motion = move_and_slide(motion, Vector2.UP)
 
 func grabItem():
 	var lastItem = grabbedItem
 	grabbedItem = itemToGrab[0].get_parent().powerType
+	itemToGrab[0].get_parent().powerType = lastItem
 	
 	if not lastItem:
 		itemToGrab[0].get_parent().queue_free()
 	else:
-		itemToGrab[0].changeItem(lastItem)
-	
-	if grabbedItem:
-		icon.texture = grabbedItem.texture
-	else:
-		icon.texture = null
+		itemToGrab[0].get_parent().updateTexture()
 
 func dropItem():
 	var newCollect = collect.instance()
