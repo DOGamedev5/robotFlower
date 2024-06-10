@@ -41,11 +41,16 @@ func _physics_process(delta):
 	stateMachine.processState()
 	
 	if Input.is_action_just_pressed("grab"):
-		if robotToInteract:
+		if itemToGrab:
+			if grabbedItem and robotToInteract:
+				grabbedItem = robotToInteract.swapPower(grabbedItem)
+			else:
+				grabItem()
+		elif robotToInteract:
 			grabbedItem = robotToInteract.swapPower(grabbedItem)
 			
-		elif itemToGrab:
-			grabItem()
+		
+
 	
 	if Input.is_action_just_pressed("drop") and grabbedItem:
 		dropItem()

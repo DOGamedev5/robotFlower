@@ -1,5 +1,9 @@
 extends Node
 
+onready var musicGame := preload("res://audio/sfx/roboton.wav")
+
+func _ready():
+	playSong(musicGame)
 
 func playSong(music):
 	$music.stream = music
@@ -17,4 +21,6 @@ func playEffect(sfx, pitch := 1.0, volume := 1.0):
 	add_child(newEffect)
 	
 	newEffect.play()
-	
+
+func _on_music_finished():
+	$music.play()

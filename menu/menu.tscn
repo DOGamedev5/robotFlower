@@ -56,6 +56,7 @@ theme = ExtResource( 4 )
 text = "credits"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 margin_top = 116.0
 margin_right = 240.0
@@ -63,6 +64,7 @@ margin_bottom = 124.0
 custom_constants/separation = 8
 
 [node name="exit" type="Button" parent="VBoxContainer"]
+visible = false
 margin_top = 128.0
 margin_right = 240.0
 margin_bottom = 176.0
