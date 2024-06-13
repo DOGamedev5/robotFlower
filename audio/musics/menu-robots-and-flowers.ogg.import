@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/menu-robots-and-flowers.ogg-7aae764dd2545966f8f0208c33f585a9.oggstr"
+
+[deps]
+
+source_file="res://audio/musics/menu-robots-and-flowers.ogg"
+dest_files=[ "res://.import/menu-robots-and-flowers.ogg-7aae764dd2545966f8f0208c33f585a9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

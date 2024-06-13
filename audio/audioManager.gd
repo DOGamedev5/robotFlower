@@ -1,10 +1,5 @@
 extends Node
 
-onready var musicGame := preload("res://audio/sfx/roboton.wav")
-
-func _ready():
-	playSong(musicGame)
-
 func playSong(music):
 	$music.stream = music
 	$music.play()

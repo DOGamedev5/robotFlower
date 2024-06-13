@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/time-to-get-some-flowers.ogg-2106073161d812be82ec513a12663f1b.oggstr"
+
+[deps]
+
+source_file="res://audio/musics/time-to-get-some-flowers.ogg"
+dest_files=[ "res://.import/time-to-get-some-flowers.ogg-2106073161d812be82ec513a12663f1b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
