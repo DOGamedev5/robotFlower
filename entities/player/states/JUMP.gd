@@ -10,6 +10,9 @@ func enter():
 func processPhysics(_delta):
 	parent.gravity()
 	parent.motion.x = Input.get_axis("ui_left", "ui_right") * parent.VELOCITY
+	
+	if Input.is_action_just_released("jump"):
+		parent.motion.y /= 2
 
 func processState():
 	
