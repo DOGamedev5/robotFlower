@@ -2,10 +2,13 @@ extends State
 
 onready var fallSfx = preload("res://audio/sfx/fall.wav")
 
+var timeFalling := .0
+
 func enter():
 	parent.playback.travel("JUMP")
 
-func processPhysics(_delta):
+func processPhysics(delta):
+	timeFalling += delta
 	parent.gravity()
 	parent.motion.x = Input.get_axis("ui_left", "ui_right") * parent.VELOCITY
 
@@ -25,4 +28,7 @@ func processState():
 	return null
 
 func exit():
-	AudioManager.playEffect(fallSfx, 1, 0.6)
+	if timeFalling > 0.3:
+		AudioManager.playEffect(fallSfx, 1, 0.6)
+	
+	timeFalling = 0

@@ -10,7 +10,6 @@ export(Array, NodePath) var flowers
 var playerStart : Vector2
 
 var selfPacked : PackedScene
-var nextPacked : PackedScene
 
 var totalFlowers := 0
 var flowerCaptured := -1
@@ -19,8 +18,6 @@ func _ready():
 	player = get_node(playerPath)
 	playerStart = player.position
 	var _1 = player.connect("death", self, "death")
-	
-	nextPacked = load(nextLevel)
 	
 	for flower in flowers:
 		var _2 = get_node(flower).connect("captured", self, "FlowerGet")
@@ -32,7 +29,7 @@ func FlowerGet():
 	flowerCaptured += 1
 	
 	if flowerCaptured >= totalFlowers:
-		var _1 = get_tree().change_scene(nextLevel)
+		LoadSystem.loadScene(self, nextLevel, true)
 
 func death():
 	if flowerCaptured >= totalFlowers: return

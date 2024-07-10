@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/redPower.png-e80eb9f3ad98217ae7d431fbd51729c0.stex"
+path="res://.import/background.png-34ec9bc00e22decd71f136b155377768.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/powers/redPower/redPower.png"
-dest_files=[ "res://.import/redPower.png-e80eb9f3ad98217ae7d431fbd51729c0.stex" ]
+source_file="res://menu/background.png"
+dest_files=[ "res://.import/background.png-34ec9bc00e22decd71f136b155377768.stex" ]
 
 [params]
 

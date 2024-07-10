@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "LevelClass",
 "language": "GDScript",
-"path": "res://world/levelClass.gd"
+"path": "res://worlds/levelClass.gd"
 }, {
 "base": "Resource",
 "class": "Power",
@@ -52,20 +52,33 @@ _global_script_class_icons={
 
 config/name="Robot Flowers"
 run/main_scene="res://menu/menu.tscn"
+boot_splash/show_image=false
+boot_splash/image="res://StartIcon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-AudioManager="*res://audio/audioManager.tscn"
+Global="*res://autoloads/global.gd"
+AudioManager="*res://autoloads/audioManager/audioManager.tscn"
+LoadSystem="*res://autoloads/LoadSystem/LoadSystem.gd"
 
 [display]
 
-window/stretch/mode="2d"
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
 
 [input]
 
@@ -123,5 +136,5 @@ quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.258824, 0.309804, 0.376471, 1 )
+environment/default_clear_color=Color( 0.313726, 0.556863, 0.733333, 1 )
 environment/default_environment="res://default_env.tres"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://entities/player/sprites/playerIdle.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://entities/player/sprites/hud/iconHud.png" type="Texture" id=11]
 [ext_resource path="res://fonts/abaddon/Abaddon Light.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://objects/flower/flower.png" type="Texture" id=13]
+[ext_resource path="res://entities/player/sprites/playerStair.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=18]
 custom_solver_bias = 0.2
@@ -140,6 +141,89 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=22]
+resource_name = "STAIR"
+length = 0.3
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "STAIRSTOP"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "WALK"
 length = 0.4
@@ -204,6 +288,12 @@ animation = "IDLE"
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "JUMP"
 
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "STAIR"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "STAIRSTOP"
+
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "WALK"
 
@@ -219,15 +309,48 @@ animation = "WALK"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/IDLE/node = SubResource( 6 )
-states/IDLE/position = Vector2( 455, 188.333 )
+states/IDLE/position = Vector2( 455.395, 188.333 )
 states/JUMP/node = SubResource( 13 )
-states/JUMP/position = Vector2( 508.333, 67 )
+states/JUMP/position = Vector2( 455.296, 51.4444 )
+states/STAIR/node = SubResource( 23 )
+states/STAIR/position = Vector2( 630.21, -16.8519 )
+states/STAIRSTOP/node = SubResource( 31 )
+states/STAIRSTOP/position = Vector2( 812.333, 36.3046 )
 states/WALK/node = SubResource( 7 )
-states/WALK/position = Vector2( 652.333, 140.333 )
-transitions = [ "IDLE", "WALK", SubResource( 8 ), "WALK", "IDLE", SubResource( 9 ), "IDLE", "JUMP", SubResource( 14 ), "JUMP", "WALK", SubResource( 15 ), "WALK", "JUMP", SubResource( 16 ), "JUMP", "IDLE", SubResource( 17 ) ]
+states/WALK/position = Vector2( 657.074, 187.889 )
+transitions = [ "IDLE", "WALK", SubResource( 8 ), "WALK", "IDLE", SubResource( 9 ), "IDLE", "JUMP", SubResource( 14 ), "JUMP", "WALK", SubResource( 15 ), "WALK", "JUMP", SubResource( 16 ), "JUMP", "IDLE", SubResource( 17 ), "JUMP", "STAIR", SubResource( 24 ), "STAIR", "JUMP", SubResource( 25 ), "STAIR", "WALK", SubResource( 26 ), "WALK", "STAIR", SubResource( 27 ), "STAIR", "IDLE", SubResource( 28 ), "IDLE", "STAIR", SubResource( 29 ), "STAIR", "STAIRSTOP", SubResource( 32 ), "STAIRSTOP", "STAIR", SubResource( 33 ), "STAIRSTOP", "WALK", SubResource( 34 ), "WALK", "STAIRSTOP", SubResource( 35 ), "STAIRSTOP", "IDLE", SubResource( 36 ), "IDLE", "STAIRSTOP", SubResource( 37 ), "STAIRSTOP", "JUMP", SubResource( 38 ), "JUMP", "STAIRSTOP", SubResource( 39 ) ]
 start_node = "IDLE"
+graph_offset = Vector2( 0, -94.6954 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
@@ -307,6 +430,8 @@ __meta__ = {
 anims/IDLE = SubResource( 3 )
 anims/JUMP = SubResource( 12 )
 anims/RESET = SubResource( 4 )
+anims/STAIR = SubResource( 22 )
+anims/STAIRSTOP = SubResource( 30 )
 anims/WALK = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

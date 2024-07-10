@@ -37,8 +37,8 @@ func _ready():
 	
 
 func _physics_process(delta):
-	stateMachine.processPhysics(delta)
 	stateMachine.processState()
+	stateMachine.processPhysics(delta)
 	
 	if Input.is_action_just_pressed("grab"):
 		if itemToGrab:

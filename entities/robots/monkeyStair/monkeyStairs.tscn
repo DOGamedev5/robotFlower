@@ -12,7 +12,7 @@
 extents = Vector2( 48, 48 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 144 )
+extents = Vector2( 16, 148 )
 
 [node name="RobotClass" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -65,5 +65,5 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" groups=["stair"]]
-position = Vector2( 0, 112 )
+position = Vector2( 0, 116 )
 shape = SubResource( 2 )
