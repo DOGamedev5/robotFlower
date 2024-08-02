@@ -2,8 +2,6 @@ extends Control
 
 onready var credits := preload("res://worlds/credits.tscn")
 
-onready var effect := preload("res://audio/sfx/fall.wav")
-
 onready var menuMusic := preload("res://audio/musics/menu-robots-and-flowers.ogg")
 onready var levelMusic := preload("res://audio/musics/time-to-get-some-flowers.ogg")
 
@@ -25,18 +23,17 @@ func _process(_delta):
 		$TextureRect.visible = false
 
 func _on_play_pressed():
-	AudioManager.playSong(levelMusic)
-	AudioManager.playEffect(effect, 1, 0.4)
-	
-	LoadSystem.loadScene(self, "res://worlds/flowerCity/levels/level1.tscn", true)
+	AudioManager.playEffect(Global.fallSound, 1, 0.4)
+	$innitial.visible = false
+	$worlds.visible = true
 
 func _on_credits_pressed():
 	AudioManager.playSong(levelMusic)	
-	AudioManager.playEffect(effect, 1, 0.4)
+	AudioManager.playEffect(Global.fallSound, 1, 0.4)
 	var _1 = get_tree().change_scene_to(credits)
 
 func _hover():
-	AudioManager.playEffect(effect, 2, 0.3)
+	AudioManager.playEffect(Global.fallSound, 2, 0.3)
 
 func _on_Tween_tween_all_completed():
 	tween.interpolate_property($background, "rect_position", Vector2(0, 0), Vector2(-1040, -1040), 14)

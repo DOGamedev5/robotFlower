@@ -189,4 +189,5 @@ anims/intro = ExtResource( 5 )
 [connection signal="mouse_entered" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/exit" to="." method="_hover"]
 [connection signal="pressed" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="mouse_entered" from="worlds/VBoxContainer/exit" to="." method="_hover"]
+[connection signal="pressed" from="worlds/VBoxContainer/exit" to="worlds" method="_on_exit_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
