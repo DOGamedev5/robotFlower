@@ -58,17 +58,23 @@ size_flags_vertical = 5
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-anchor_top = 0.937
-anchor_right = 1.0
-anchor_bottom = 0.937
-margin_top = -35.904
-margin_bottom = 0.095993
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -48.0
+margin_right = 96.0
+margin_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 3 )
 text = "Robot City"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="button" type="TextureButton" parent="."]
 anchor_right = 1.0

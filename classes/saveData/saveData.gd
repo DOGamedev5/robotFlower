@@ -5,7 +5,8 @@ var saveVersion := "v1.5.2"
 var worldsUnlocked := 0
 
 var worlds := {
-	"res://worlds/flowerCity" : WorldData.new(0, 10, 0, "res://worlds/flowerCity")
+	"res://worlds/flowerCity" : WorldData.new(0, 10, 0),
+	"res://worlds/GearsAndLeafs" : WorldData.new(0, 5, 1)
 }
 
 var config := {

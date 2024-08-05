@@ -28,6 +28,7 @@ func _ready():
 	
 	var _1 := connect("selected", $"../../../", "worldSelect")
 
+
 func setupApperence():
 	$button/lock.visible = desactived
 	
@@ -58,9 +59,9 @@ func _on_button_pressed():
 		var shakeTimes := 10
 		var frequency := 0.02
 		var lastPositionButton : Vector2 = $button.rect_position
-		var lastPositionLabel : Vector2 = $Label.rect_position
+#		var lastPositionLabel : Vector2 = $Label.rect_position
 		var finalPositionButton : Vector2 = $button.rect_position
-		var finalPositionLabel : Vector2 = $Label.rect_position
+#		var finalPositionLabel : Vector2 = $Label.rect_position
 		
 		for i in shakeTimes:
 			
@@ -68,12 +69,12 @@ func _on_button_pressed():
 #			tween.interpolate_property(self, "rect_pivot_offset", null, position, 0.5)
 
 			tween.interpolate_property($button, "rect_position", lastPositionButton, position + Vector2(56, 0), 0, 0, 2, frequency*i)
-			tween.interpolate_property($Label, "rect_position", lastPositionLabel, position + Vector2(0, 144), 0, 0, 2, frequency*i)
+#			tween.interpolate_property($Label, "rect_position", lastPositionLabel, position + Vector2(0, 144), 0, 0, 2, frequency*i)
 			lastPositionButton = position + Vector2(56, 0)
-			lastPositionLabel = position + Vector2(0, 144)
+#			lastPositionLabel = position + Vector2(0, 144) - $Label.rect_pivot_offset
 		
 		tween.interpolate_property($button, "rect_position", lastPositionButton, finalPositionButton, 0, 0, 2, frequency*(shakeTimes+1))
-		tween.interpolate_property($Label, "rect_position", lastPositionLabel, finalPositionLabel, 0, 0, 2, frequency*(shakeTimes+1))
+#		tween.interpolate_property($Label, "rect_position", lastPositionLabel, finalPositionLabel, 0, 0, 2, frequency*(shakeTimes+1))
 			
 		tween.start()
 #

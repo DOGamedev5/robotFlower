@@ -148,11 +148,24 @@ alignment = 1
 [node name="worldButtton" parent="worlds/VBoxContainer/HBoxContainer" instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 352.0
+margin_left = 127.0
 margin_top = 130.0
-margin_right = 544.0
+margin_right = 319.0
 margin_bottom = 322.0
 size_flags_vertical = 4
+world = null
+worldName = null
+
+[node name="worldButtton2" parent="worlds/VBoxContainer/HBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 577.0
+margin_top = 130.0
+margin_right = 769.0
+margin_bottom = 322.0
+size_flags_vertical = 4
+world = "res://worlds/GearsAndLeafs"
+worldName = "Gears And Leafs"
 
 [node name="exit" type="Button" parent="worlds/VBoxContainer"]
 margin_left = 412.0
