@@ -1,7 +1,7 @@
 class_name LevelClass extends Node2D
 
-
-export(String, FILE, "*.tscn") var nextLevel
+export(String, DIR) var currentWorld := "res://worlds/flowerCity"
+export(int) var nextLevel := 1
 export var playerPath : NodePath
 var player
 
@@ -23,13 +23,22 @@ func _ready():
 		var _2 = get_node(flower).connect("captured", self, "FlowerGet")
 		totalFlowers += 1
 	
+	var background : PackedScene = load(currentWorld + "/background.tscn")
+	var backgroundInstance = background.instance()
+	add_child(backgroundInstance)
+	
+	
+	
 	flowerCaptured = 0
 
 func FlowerGet():
 	flowerCaptured += 1
 	
 	if flowerCaptured >= totalFlowers:
-		LoadSystem.loadScene(self, nextLevel, true)
+		if nextLevel == 0:
+			LoadSystem.loadScene(self, "res://worlds/credits.tscn", true)
+		var path := currentWorld + "/levels/level{id}.tscn".format({"id" : nextLevel})
+		LoadSystem.loadScene(self, path, true)
 
 func death():
 	if flowerCaptured >= totalFlowers: return

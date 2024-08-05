@@ -19,13 +19,14 @@ func _ready():
 	var unlockedWorlds := Global.data.worldsUnlocked
 	if worldInformation.worldNecessary > unlockedWorlds:
 		desactived = true
-	desactived = true
 	
 	setupApperence()
 	
 	$Label.text = worldName
 	textureRect.texture["atlas"] = load(world + "/icon.png")
 	textureRect.region_rect.position = Vector2.ZERO
+	
+	var _1 := connect("selected", $"../../../", "worldSelect")
 
 func setupApperence():
 	$button/lock.visible = desactived
@@ -53,16 +54,17 @@ func _on_button_mouse_exited():
 func _on_button_pressed():
 	if desactived:
 		AudioManager.playEffect(Global.fallSound, 0.55, 0.75)
-		var shake := 8
+		var shake := 4.5
 		var shakeTimes := 10
-		var frequency := 0.05
+		var frequency := 0.02
 		var lastPositionButton : Vector2 = $button.rect_position
 		var lastPositionLabel : Vector2 = $Label.rect_position
 		var finalPositionButton : Vector2 = $button.rect_position
 		var finalPositionLabel : Vector2 = $Label.rect_position
 		
 		for i in shakeTimes:
-			var position := Vector2(rand_range(-shake, shake), rand_range(-shake, shake))
+			
+			var position := Vector2(shake* rand_range(-1, 1), shake* rand_range(-1.0, 1))
 #			tween.interpolate_property(self, "rect_pivot_offset", null, position, 0.5)
 
 			tween.interpolate_property($button, "rect_position", lastPositionButton, position + Vector2(56, 0), 0, 0, 2, frequency*i)
