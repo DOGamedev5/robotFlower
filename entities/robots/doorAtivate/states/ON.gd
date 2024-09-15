@@ -5,7 +5,7 @@ func enter():
 	$"../../AnimationPlayer".play("ON")
 
 func processState():
-	if parent.power == null:
+	if not parent.havePressed:
 		return "OFF"
 	
 	return null

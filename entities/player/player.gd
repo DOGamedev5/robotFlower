@@ -9,6 +9,8 @@ onready var animationTree := $AnimationTree
 onready var icon := $HUD/Control/Control/VBoxContainer/HBoxContainer/icon/item
 onready var countFlowers := $HUD/Control/Control2/NinePatchRect/HBoxContainer/Label2
 onready var playback = animationTree["parameters/playback"]
+onready var coyoteTimer = $CoyoteTimer
+onready var jumpBufferTimer = $JumpBuffer
 
 onready var collect := preload("res://objects/powers/collect/collect.tscn")
 onready var stepSfx := preload("res://audio/sfx/step.wav")
@@ -26,6 +28,8 @@ var onStair := false
 
 var canJump := true
 var coyotTimer := true
+var jumpBuffer := false
+var jumpReleased := false
 
 signal death
 
@@ -40,6 +44,11 @@ func _physics_process(delta):
 	stateMachine.processState()
 	stateMachine.processPhysics(delta)
 	
+	if Input.is_action_just_pressed("jump"):
+		jumpBufferTimer.start()
+		jumpBuffer = true
+		jumpReleased = false
+	
 	if Input.is_action_just_pressed("grab"):
 		if itemToGrab:
 			if grabbedItem and robotToInteract:
@@ -48,9 +57,6 @@ func _physics_process(delta):
 				grabItem()
 		elif robotToInteract:
 			grabbedItem = robotToInteract.swapPower(grabbedItem)
-			
-		
-
 	
 	if Input.is_action_just_pressed("drop") and grabbedItem:
 		dropItem()
@@ -67,6 +73,8 @@ func _physics_process(delta):
 	
 	jumpDetect()
 	motion = move_and_slide(motion, Vector2.UP)
+	
+#	$Label.text = "canJump: {0}\n jumpBuffer: {1}\n coyoteTimer: {2}".format([canJump, jumpBuffer, coyotTimer])
 
 func grabItem():
 	var lastItem = grabbedItem
@@ -98,14 +106,19 @@ func jumpDetect():
 		canJump = true
 		coyotTimer = true
 		
-	elif coyotTimer:
-		canJump = true
+	elif canJump and coyotTimer:
 		coyotTimer = false
-		$Timer.start()
-	
-	elif $Timer.is_stopped():
+		coyoteTimer.start()
+
+func jump():
+	if canJump:
+		motion.y = JUMPFORCE
+		coyotTimer = false
 		canJump = false
-		coyotTimer = false
+		
+	elif not Input.is_action_pressed("jump") and not jumpReleased:
+		motion.y /= 2
+		jumpReleased = true
 
 func step():
 	AudioManager.playEffect(stepSfx)
@@ -132,3 +145,10 @@ func _on_grabber_area_exited(area):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	emit_signal("death")
+
+func _on_JumpBuffer_timeout():
+	jumpBuffer = false
+
+
+func _on_CoyoteTimer_timeout():
+	canJump = false

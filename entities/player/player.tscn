@@ -448,8 +448,12 @@ scale = Vector2( 1.6, 2.4 )
 enabled = true
 cast_to = Vector2( 0, 11 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -560,6 +564,17 @@ text = "0/1"
 align = 2
 valign = 1
 
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -48.0
+margin_top = -104.0
+margin_right = 48.0
+margin_bottom = -48.0
+align = 1
+valign = 1
+
 [connection signal="area_entered" from="grabber" to="." method="_on_grabber_area_entered"]
 [connection signal="area_exited" from="grabber" to="." method="_on_grabber_area_exited"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_CoyoteTimer_timeout"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_JumpBuffer_timeout"]

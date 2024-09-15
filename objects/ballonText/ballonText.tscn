@@ -8,8 +8,8 @@
 atlas = ExtResource( 1 )
 region = Rect2( 11, 0, 11, 15 )
 
-[node name="Control" type="Control"]
-modulate = Color( 1, 1, 1, 0.6 )
+[node name="ballonText" type="Control"]
+modulate = Color( 1, 1, 1, 0.784314 )
 margin_right = 64.0
 margin_bottom = 64.0
 grow_horizontal = 0

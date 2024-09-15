@@ -10,7 +10,7 @@
 
 [node name="LevelClass" type="Node2D"]
 script = ExtResource( 1 )
-nextLevel = 5
+currentLevel = 4
 playerPath = NodePath("player")
 flowers = [ NodePath("flower"), NodePath("flower2"), NodePath("flower3"), NodePath("flower4"), NodePath("flower5") ]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-4a5ada599574bb4ae42495f204f11d6f.stex"
+path="res://.import/levelButton.png-d91d0717ddefb18bd763034ea98ad92d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/flowerCity/icon.png"
-dest_files=[ "res://.import/icon.png-4a5ada599574bb4ae42495f204f11d6f.stex" ]
+source_file="res://menu/levelSelect/buttonLevel/levelButton.png"
+dest_files=[ "res://.import/levelButton.png-d91d0717ddefb18bd763034ea98ad92d.stex" ]
 
 [params]
 

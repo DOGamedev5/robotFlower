@@ -51,7 +51,8 @@ func loadScene(current, next : String, closeAfterLoad := false,currentPath := MA
 		
 		else:
 			var currentScene = load(currentPath)
-			get_tree().get_root().call_deferred("add_child", currentScene)
+#			get_tree().get_root().call_deferred("add_child", currentScene)
+			get_tree().get_root().add_child(currentScene)
 			get_tree().current_scene = currentScene
 			emit_signal("finishedLoad")
 			closeLoad()

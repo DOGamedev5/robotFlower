@@ -12,7 +12,7 @@ func processState():
 	if not Input.get_axis("ui_left", "ui_right"):
 		return "IDLE"
 		
-	elif Input.is_action_just_pressed("jump") and parent.canJump:
+	elif parent.jumpBuffer and parent.canJump:
 		return "JUMP"
 	
 	elif Input.is_action_just_pressed("ui_up") and parent.onStair:

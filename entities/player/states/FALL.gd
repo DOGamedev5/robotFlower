@@ -13,7 +13,7 @@ func processPhysics(delta):
 	parent.motion.x = Input.get_axis("ui_left", "ui_right") * parent.VELOCITY
 
 func processState():
-	if Input.is_action_just_pressed("jump") and parent.canJump:
+	if parent.jumpBuffer and parent.canJump:
 		return "JUMP"
 	
 	if parent.is_on_floor():

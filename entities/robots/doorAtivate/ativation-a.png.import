@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background1.png-e820420fe5786b3d9bde83f265af1a6a.stex"
+path="res://.import/ativation-a.png-dad0ee8663a47498996f5eed4b0159ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://worlds/flowerCity/sprites/background1.png"
-dest_files=[ "res://.import/background1.png-e820420fe5786b3d9bde83f265af1a6a.stex" ]
+source_file="res://entities/robots/doorAtivate/ativation-a.png"
+dest_files=[ "res://.import/ativation-a.png-dad0ee8663a47498996f5eed4b0159ef.stex" ]
 
 [params]
 

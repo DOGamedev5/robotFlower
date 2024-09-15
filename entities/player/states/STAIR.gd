@@ -17,14 +17,14 @@ func processPhysics(_delta):
 
 func processState():
 	
-	if Input.is_action_just_pressed("jump"):
+	if parent.jumpBuffer:
+		parent.canJump = true
 		return "JUMP"
 	
 	elif not parent.onStair:
+		parent.motion.y = 0
 		return "FALL"
 	
 	return null
 
-func exit():
-	parent.motion.y = 0
 
