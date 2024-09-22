@@ -5,10 +5,33 @@
 [node name="CanvasLayer" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.5, 0 )
+motion_scale = Vector2( 0.1, 0.4 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Background1" type="Sprite" parent="ParallaxLayer"]
 position = Vector2( 512, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+vframes = 3
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0.3 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Background1" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 512, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+vframes = 3
+frame = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 0.25 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Background1" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 512, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+vframes = 3
+frame = 2

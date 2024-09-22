@@ -25,7 +25,8 @@ func _ready():
 		var _2 = get_node(flower).connect("captured", self, "FlowerGet")
 		totalFlowers += 1
 	
-	var background : PackedScene = load(Global.currentWorld.getBackground())
+	
+	var background : PackedScene = load(Global.currentWorld.getBackground()) if Global.currentWorld else load("res://worlds/FlowerCity/background.tscn")
 	var backgroundInstance = background.instance()
 	add_child(backgroundInstance)
 	
