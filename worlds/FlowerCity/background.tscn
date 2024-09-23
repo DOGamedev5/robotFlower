@@ -1,21 +1,40 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://worlds/FlowerCity/sprites/background1.png" type="Texture" id=1]
 
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.480159, 1 )
+colors = PoolColorArray( 0.313726, 0.556863, 0.733333, 1, 0.223529, 0.392157, 0.588235, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 600
+
 [node name="CanvasLayer" type="ParallaxBackground"]
 
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( -912, 0 )
+rotation = 1.5708
+scale = Vector2( 1, 2048.18 )
+texture = SubResource( 2 )
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.1, 0.4 )
+motion_scale = Vector2( 0.2, 0.1 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Background1" type="Sprite" parent="ParallaxLayer"]
+self_modulate = Color( 1, 1, 1, 0.666667 )
 position = Vector2( 512, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 vframes = 3
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.2, 0.3 )
+motion_scale = Vector2( 0.3, 0.2 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Background1" type="Sprite" parent="ParallaxLayer2"]
@@ -30,6 +49,7 @@ motion_scale = Vector2( 0.4, 0.25 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Background1" type="Sprite" parent="ParallaxLayer3"]
+self_modulate = Color( 0.647059, 0.552941, 0.8, 1 )
 position = Vector2( 512, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
