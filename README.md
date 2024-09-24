@@ -21,3 +21,9 @@ Get the flower to pass the level using the robots
 
 ### The Flower plant
   There is, the final of our journey, finally you finish your mission, your proporse on earth, Good Bye!
+
+## Credits
+
+- All music ans sound design made by [RafBolacha](https://itch.io/profile/rafbolacha)
+- Font [QuinqueFive](https://ggbot.itch.io/quinquefive-font) by [GGBotNet](https://ggbot.itch.io/)
+- Font [Abaddon](https://caffinate.itch.io/abaddon) by [Nathan Scott](https://caffinate.itch.io/)
