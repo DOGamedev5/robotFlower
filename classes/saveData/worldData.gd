@@ -19,5 +19,4 @@ func getPath(index):
 func getBackground():
 	var world = name.replace(" ", "")
 	
-	print("res://worlds/{world}/background.tscn".format({"world" : world}))
 	return "res://worlds/{world}/background.tscn".format({"world" : world})

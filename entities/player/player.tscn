@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://entities/player/sprites/playerIdle.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -10,9 +10,7 @@
 [ext_resource path="res://entities/player/sprites/playerWalk.png" type="Texture" id=8]
 [ext_resource path="res://entities/player/sprites/playerJump.png" type="Texture" id=9]
 [ext_resource path="res://entities/player/states/STAIR.gd" type="Script" id=10]
-[ext_resource path="res://entities/player/sprites/hud/iconHud.png" type="Texture" id=11]
-[ext_resource path="res://fonts/abaddon/Abaddon Light.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://objects/flower/flower.png" type="Texture" id=13]
+[ext_resource path="res://entities/player/playerHUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/sprites/playerStair.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=18]
@@ -354,27 +352,6 @@ graph_offset = Vector2( 0, -94.6954 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
-[sub_resource type="DynamicFont" id=19]
-size = 32
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-font_data = ExtResource( 12 )
-
-[sub_resource type="DynamicFont" id=20]
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-font_data = ExtResource( 12 )
-
-[sub_resource type="DynamicFont" id=21]
-size = 64
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-extra_spacing_bottom = -14
-font_data = ExtResource( 12 )
-
 [node name="player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 0
 collision_mask = 5
@@ -456,113 +433,7 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="HUD"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Control" type="Control" parent="HUD/Control"]
-modulate = Color( 1, 1, 1, 0.764706 )
-margin_left = 32.0
-margin_top = 24.0
-margin_right = 264.0
-margin_bottom = 106.0
-
-[node name="ColorRect" type="ColorRect" parent="HUD/Control/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -2.0
-margin_top = -2.0
-margin_right = 2.0
-margin_bottom = 2.0
-color = Color( 0.219608, 0.219608, 0.219608, 0.545098 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Control/Control"]
-margin_right = 232.0
-margin_bottom = 82.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control/Control/VBoxContainer"]
-margin_right = 232.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 232, 60 )
-
-[node name="icon" type="TextureRect" parent="HUD/Control/Control/VBoxContainer/HBoxContainer"]
-margin_right = 60.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 60, 60 )
-texture = ExtResource( 11 )
-expand = true
-
-[node name="item" type="TextureRect" parent="HUD/Control/Control/VBoxContainer/HBoxContainer/icon"]
-margin_left = 12.0
-margin_top = 12.0
-margin_right = 48.0
-margin_bottom = 48.0
-expand = true
-
-[node name="Label" type="Label" parent="HUD/Control/Control/VBoxContainer/HBoxContainer"]
-margin_left = 64.0
-margin_top = 12.0
-margin_right = 232.0
-margin_bottom = 48.0
-custom_fonts/font = SubResource( 19 )
-text = "current item"
-
-[node name="Label2" type="Label" parent="HUD/Control/Control/VBoxContainer"]
-margin_top = 64.0
-margin_right = 232.0
-margin_bottom = 82.0
-custom_colors/font_color = Color( 0.764706, 0.788235, 0.811765, 1 )
-custom_fonts/font = SubResource( 20 )
-text = "K to take or give and L to Drop"
-
-[node name="Control2" type="Control" parent="HUD/Control"]
-modulate = Color( 1, 1, 1, 0.764706 )
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -184.0
-margin_top = 32.0
-margin_right = -39.0
-margin_bottom = 84.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/Control/Control2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 8.0
-margin_bottom = 8.0
-texture = ExtResource( 11 )
-patch_margin_left = 6
-patch_margin_top = 5
-patch_margin_right = 6
-patch_margin_bottom = 9
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control/Control2/NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="TextureRect" type="TextureRect" parent="HUD/Control/Control2/NinePatchRect/HBoxContainer"]
-margin_right = 64.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 64, 68 )
-size_flags_horizontal = 0
-texture = ExtResource( 13 )
-expand = true
-
-[node name="Label2" type="Label" parent="HUD/Control/Control2/NinePatchRect/HBoxContainer"]
-margin_left = 68.0
-margin_right = 152.0
-margin_bottom = 58.0
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 21 )
-text = "0/1"
-align = 2
-valign = 1
+[node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="Label" type="Label" parent="."]
 visible = false

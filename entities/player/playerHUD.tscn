@@ -1,0 +1,513 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://entities/player/sprites/hud/iconHud.png" type="Texture" id=1]
+[ext_resource path="res://fonts/abaddon/Abaddon Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://objects/flower/flower.png" type="Texture" id=3]
+[ext_resource path="res://entities/player/sprites/hud/buttons.png" type="Texture" id=4]
+[ext_resource path="res://entities/player/mobileInput.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=19]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=20]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+extra_spacing_bottom = -14
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 4 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 4 )
+region = Rect2( 256, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 4 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 64, 64, 64 )
+
+[node name="HUD" type="CanvasLayer"]
+layer = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 568.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 98.0
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.764706 )
+margin_right = 242.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 242, 98 )
+size_flags_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 242, 98 )
+color = Color( 0.219608, 0.219608, 0.219608, 0.545098 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -8.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+margin_right = 234.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 232, 60 )
+
+[node name="icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="item" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/icon"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 48.0
+margin_bottom = 48.0
+expand = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_top = 12.0
+margin_right = 232.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 19 )
+text = "current item"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+margin_top = 64.0
+margin_right = 234.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0.764706, 0.788235, 0.811765, 1 )
+custom_fonts/font = SubResource( 20 )
+text = "K to take or give and L to Drop"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 743.0
+margin_right = 960.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 217, 88 )
+size_flags_horizontal = 8
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 6
+patch_margin_bottom = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect/HBoxContainer"]
+margin_top = 11.0
+margin_right = 64.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 64, 68 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect/HBoxContainer"]
+margin_left = 68.0
+margin_top = 16.0
+margin_right = 152.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 21 )
+text = "0/1"
+align = 2
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 276.0
+margin_right = 960.0
+margin_bottom = 536.0
+size_flags_vertical = 10
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 478.0
+margin_bottom = 260.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+margin_right = 260.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 260, 0 )
+
+[node name="up" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+margin_left = 66.0
+margin_right = 194.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+size_flags_horizontal = 4
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 38 )
+texture_pressed = SubResource( 39 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 132.0
+margin_right = 260.0
+margin_bottom = 260.0
+
+[node name="left" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 28 )
+texture_pressed = SubResource( 29 )
+expand = true
+
+[node name="right" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 30 )
+texture_pressed = SubResource( 31 )
+expand = true
+
+[node name="down" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+margin_left = 66.0
+margin_top = 132.0
+margin_right = 194.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+size_flags_horizontal = 4
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 40 )
+texture_pressed = SubResource( 41 )
+expand = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 482.0
+margin_right = 960.0
+margin_bottom = 260.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Control" type="Control" parent="."]
+margin_bottom = 88.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Control2" type="Control" parent="Control"]
+modulate = Color( 1, 1, 1, 0.764706 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -184.0
+margin_top = 32.0
+margin_right = -39.0
+margin_bottom = 84.0
+
+[node name="mobileInput" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="left" type="TextureButton" parent="mobileInput"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = -216.0
+margin_right = 192.0
+margin_bottom = -88.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 28 )
+texture_pressed = SubResource( 29 )
+expand = true
+
+[node name="right" type="TextureButton" parent="mobileInput"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 208.0
+margin_top = -216.0
+margin_right = 336.0
+margin_bottom = -88.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 30 )
+texture_pressed = SubResource( 31 )
+expand = true
+
+[node name="jump" type="TextureButton" parent="mobileInput"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -216.0
+margin_right = -64.0
+margin_bottom = -88.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 32 )
+texture_pressed = SubResource( 33 )
+expand = true
+
+[node name="Lbutton" type="TextureButton" parent="mobileInput"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -344.0
+margin_right = -64.0
+margin_bottom = -216.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 34 )
+texture_pressed = SubResource( 35 )
+expand = true
+
+[node name="Kbutton" type="TextureButton" parent="mobileInput"]
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -216.0
+margin_right = -192.0
+margin_bottom = -88.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 36 )
+texture_pressed = SubResource( 37 )
+expand = true
+
+[node name="up" type="TextureButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 136.0
+margin_top = -344.0
+margin_right = 264.0
+margin_bottom = -216.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 38 )
+texture_pressed = SubResource( 39 )
+expand = true
+
+[node name="down" type="TextureButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.396078 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 136.0
+margin_top = -216.0
+margin_right = 264.0
+margin_bottom = -88.0
+rect_min_size = Vector2( 128, 128 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 40 )
+texture_pressed = SubResource( 41 )
+expand = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.603922 )
+position = Vector2( 192, 192 )
+scale = Vector2( 2, 2 )
+normal = SubResource( 22 )
+pressed = SubResource( 23 )
+action = "ui_up"
+visibility_mode = 1
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.603922 )
+position = Vector2( 832, 384 )
+scale = Vector2( 2, 2 )
+normal = SubResource( 22 )
+pressed = SubResource( 23 )
+action = "ui_up"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.603922 )
+position = Vector2( 64, 384 )
+scale = Vector2( 2, 2 )
+normal = SubResource( 24 )
+pressed = SubResource( 25 )
+action = "ui_left"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.603922 )
+position = Vector2( 208, 384 )
+scale = Vector2( 2, 2 )
+normal = SubResource( 26 )
+pressed = SubResource( 27 )
+action = "ui_right"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="mobileInput"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.603922 )
+position = Vector2( 192, 448 )
+scale = Vector2( 2, 2 )
+normal = SubResource( 24 )
+pressed = SubResource( 25 )
+action = "ui_left"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/up" to="mobileInput" method="_on_up_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/up" to="mobileInput" method="_on_up_button_up"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/left" to="mobileInput" method="_on_left_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/left" to="mobileInput" method="_on_left_button_up"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/right" to="mobileInput" method="_on_right_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/right" to="mobileInput" method="_on_right_button_up"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/down" to="mobileInput" method="_on_down_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/down" to="mobileInput" method="_on_down_button_up"]
+[connection signal="button_down" from="mobileInput/left" to="mobileInput" method="_on_left_button_down"]
+[connection signal="button_up" from="mobileInput/left" to="mobileInput" method="_on_left_button_up"]
+[connection signal="button_down" from="mobileInput/right" to="mobileInput" method="_on_right_button_down"]
+[connection signal="button_up" from="mobileInput/right" to="mobileInput" method="_on_right_button_up"]
+[connection signal="button_down" from="mobileInput/jump" to="mobileInput" method="_on_jump_button_down"]
+[connection signal="button_up" from="mobileInput/jump" to="mobileInput" method="_on_jump_button_up"]
+[connection signal="button_down" from="mobileInput/Lbutton" to="mobileInput" method="_on_Lbutton_button_down"]
+[connection signal="button_up" from="mobileInput/Lbutton" to="mobileInput" method="_on_Lbutton_button_up"]
+[connection signal="button_down" from="mobileInput/Kbutton" to="mobileInput" method="_on_Kbutton_button_down"]
+[connection signal="button_up" from="mobileInput/Kbutton" to="mobileInput" method="_on_Kbutton_button_up"]
+[connection signal="button_down" from="mobileInput/up" to="mobileInput" method="_on_up_button_down"]
+[connection signal="button_up" from="mobileInput/up" to="mobileInput" method="_on_up_button_up"]
+[connection signal="button_down" from="mobileInput/down" to="mobileInput" method="_on_down_button_down"]
+[connection signal="button_up" from="mobileInput/down" to="mobileInput" method="_on_down_button_up"]

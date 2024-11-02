@@ -8,6 +8,8 @@ var enteredGame := false
 var data : SaveData
 var _file := File.new()
 
+var mobileUi
+
 onready var fallSound := preload("res://audio/sfx/fall.wav")
 onready var flowerSound := preload("res://audio/sfx/flower.wav")
 onready var jumpSound := preload("res://audio/sfx/jump.wav")
