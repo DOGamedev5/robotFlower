@@ -8,6 +8,8 @@ var player
 
 export(Array, NodePath) var flowers
 
+signal updateCount(getted, total)
+
 var playerStart : Vector2
 
 var selfPacked : PackedScene
@@ -17,6 +19,7 @@ var flowerCaptured := -1
 var gameStoped := false
 
 func _ready():
+#	emit_signal("updateCount", flowerCaptured, totalFlowers)
 	player = get_node(playerPath)
 	playerStart = player.position
 	var _1 = player.connect("death", self, "death")
@@ -39,6 +42,7 @@ func _input(_event):
 
 func FlowerGet():
 	flowerCaptured += 1
+	emit_signal("updateCount", flowerCaptured, totalFlowers)
 	
 	if flowerCaptured >= totalFlowers:
 		gameStoped = true

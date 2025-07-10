@@ -6,6 +6,8 @@ var states : Dictionary
 var currentState : State
 var parent
 
+signal changedState(newState)
+
 func _ready():
 	parent = get_parent()
 	
@@ -32,6 +34,7 @@ func processState():
 	var newState = currentState.processState()
 	if newState != null:
 		changeState(newState)
+		emit_signal("changedState", newState)
 
 func changeState(newState : String):
 	if currentState:

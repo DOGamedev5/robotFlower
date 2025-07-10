@@ -1,12 +1,16 @@
-extends Control
+extends HBoxContainer
 
 func _ready():
-	
-	visible = OS.has_touchscreen_ui_hint()
+	pass
+#	visible = OS.has_touchscreen_ui_hint()
 
-func _physics_process(delta):
-	if get_node("../../").onStair:
-		$up.visible = true
+func changedState(state):
+	print()
+	if state == "SATIR":
+		$HBoxContainer/VBoxContainer/up.visible = true
+	else:
+		$HBoxContainer/VBoxContainer/up.visible = false
+		
 
 func _on_right_button_down():
 	var action := InputEventAction.new()

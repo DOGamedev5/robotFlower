@@ -20,6 +20,9 @@ const GRAVITYFORCE := 20
 const MAXGRAVITY := 450
 const JUMPFORCE := -630
 
+signal iconChanged(newIcon)
+signal changedState(newState)
+
 var motion : Vector2
 var itemToGrab : Array
 var robotToInteract
@@ -55,6 +58,12 @@ func _physics_process(delta):
 				grabbedItem = robotToInteract.swapPower(grabbedItem)
 			else:
 				grabItem()
+			
+			if grabbedItem:
+				emit_signal("iconChanged", grabbedItem.texture)
+			else:
+				emit_signal("iconChanged", null)
+				
 		elif robotToInteract:
 			grabbedItem = robotToInteract.swapPower(grabbedItem)
 	
@@ -63,13 +72,6 @@ func _physics_process(delta):
 	
 	if motion.x:
 		$sprite.flip_h = motion.x < 0 
-	
-	countFlowers.text = "{0}/{1}".format([get_parent().flowerCaptured, get_parent().totalFlowers])
-	
-	if grabbedItem != null:
-		icon.texture = grabbedItem.texture
-	else:
-		icon.texture = null
 	
 	jumpDetect()
 	motion = move_and_slide(motion, Vector2.UP)
@@ -149,6 +151,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_JumpBuffer_timeout():
 	jumpBuffer = false
 
-
 func _on_CoyoteTimer_timeout():
 	canJump = false
+
+func _on_StateMachine_changedState(newState):
+	emit_signal("changedState", newState)

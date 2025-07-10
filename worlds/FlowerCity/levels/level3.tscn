@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://worlds/levelClass.gd" type="Script" id=1]
 [ext_resource path="res://worlds/tilesets/tileset1/tileset1.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://objects/powers/gear/gear.tres" type="Resource" id=6]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/flower/flower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/player/playerHUD.tscn" type="PackedScene" id=9]
 
 [node name="LevelClass" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,3 +47,9 @@ position = Vector2( 1296, -600 )
 
 [node name="flower2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 200, -568 )
+
+[node name="HUD" parent="." instance=ExtResource( 9 )]
+
+[connection signal="updateCount" from="." to="HUD" method="updateCount"]
+[connection signal="changedState" from="player" to="HUD" method="_on_player_changedState"]
+[connection signal="iconChanged" from="player" to="HUD" method="iconChanged"]

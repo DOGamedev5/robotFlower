@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/robots/duckFormer/duckFormer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/flower/flower.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://worlds/levelClass.gd" type="Script" id=5]
 [ext_resource path="res://entities/robots/monkeyStair/monkeyStairs.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/powers/gear/gear.tres" type="Resource" id=7]
+[ext_resource path="res://entities/player/playerHUD.tscn" type="PackedScene" id=8]
 
 [node name="LevelClass" type="Node2D"]
 script = ExtResource( 5 )
@@ -35,3 +36,9 @@ position = Vector2( 520, -96 )
 [node name="RobotClass" parent="." instance=ExtResource( 6 )]
 position = Vector2( 80, -384 )
 power = ExtResource( 7 )
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+
+[connection signal="updateCount" from="." to="HUD" method="updateCount"]
+[connection signal="changedState" from="player" to="HUD" method="_on_player_changedState"]
+[connection signal="iconChanged" from="player" to="HUD" method="iconChanged"]

@@ -85,6 +85,7 @@ margin_right = 632.0
 margin_bottom = 298.0
 rect_min_size = Vector2( 240, 240 )
 size_flags_horizontal = 6
+custom_constants/separation = 12
 
 [node name="play" type="Button" parent="innitial/VBoxContainer2/MarginContainer/VBoxContainer"]
 margin_right = 240.0
@@ -92,27 +93,19 @@ margin_bottom = 48.0
 theme = ExtResource( 4 )
 text = "play"
 
-[node name="HSeparator" type="HSeparator" parent="innitial/VBoxContainer2/MarginContainer/VBoxContainer"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 52.0
-margin_right = 240.0
-margin_bottom = 60.0
-custom_constants/separation = 8
-
 [node name="credits" type="Button" parent="innitial/VBoxContainer2/MarginContainer/VBoxContainer"]
-margin_top = 64.0
+margin_top = 60.0
 margin_right = 240.0
-margin_bottom = 112.0
+margin_bottom = 108.0
 theme = ExtResource( 4 )
 text = "credits"
 
-[node name="HSeparator2" type="HSeparator" parent="innitial/VBoxContainer2/MarginContainer/VBoxContainer"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 116.0
+[node name="options" type="Button" parent="innitial/VBoxContainer2/MarginContainer/VBoxContainer"]
+margin_top = 120.0
 margin_right = 240.0
-margin_bottom = 124.0
-custom_constants/separation = 8
+margin_bottom = 168.0
+theme = ExtResource( 4 )
+text = "options"
 
 [node name="exit" type="Button" parent="innitial/VBoxContainer2/MarginContainer/VBoxContainer"]
 visible = false
@@ -199,6 +192,7 @@ anims/intro = ExtResource( 5 )
 [connection signal="pressed" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/credits" to="." method="_hover"]
 [connection signal="pressed" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/options" to="." method="_hover"]
 [connection signal="mouse_entered" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/exit" to="." method="_hover"]
 [connection signal="pressed" from="innitial/VBoxContainer2/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="mouse_entered" from="worlds/VBoxContainer/exit" to="." method="_hover"]

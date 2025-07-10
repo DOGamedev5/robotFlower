@@ -14,7 +14,7 @@ func _ready():
 	Global.enteredGame = true
 	
 	AudioManager.playSong(menuMusic)
-	tween.interpolate_property($background, "rect_position", Vector2(0, 0), Vector2(-1040, -1040), 14)
+	tween.interpolate_property($background, "rect_position", Vector2(0, 0), Vector2(-1040, -1040), 28)
 	tween.start()
 
 func _process(_delta):
@@ -36,7 +36,7 @@ func _hover():
 	AudioManager.playEffect(Global.fallSound, 2, 0.3)
 
 func _on_Tween_tween_all_completed():
-	tween.interpolate_property($background, "rect_position", Vector2(0, 0), Vector2(-1040, -1040), 14)
+	tween.interpolate_property($background, "rect_position", Vector2(0, 0), Vector2(-1040, -1040), 28)
 	tween.start()
 
 func _on_exit_pressed():

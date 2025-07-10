@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://entities/player/sprites/playerIdle.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://entities/player/sprites/playerWalk.png" type="Texture" id=8]
 [ext_resource path="res://entities/player/sprites/playerJump.png" type="Texture" id=9]
 [ext_resource path="res://entities/player/states/STAIR.gd" type="Script" id=10]
-[ext_resource path="res://entities/player/playerHUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/sprites/playerStair.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=18]
@@ -433,8 +432,6 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
-[node name="HUD" parent="." instance=ExtResource( 11 )]
-
 [node name="Label" type="Label" parent="."]
 visible = false
 margin_left = -48.0
@@ -444,6 +441,7 @@ margin_bottom = -48.0
 align = 1
 valign = 1
 
+[connection signal="changedState" from="StateMachine" to="." method="_on_StateMachine_changedState"]
 [connection signal="area_entered" from="grabber" to="." method="_on_grabber_area_entered"]
 [connection signal="area_exited" from="grabber" to="." method="_on_grabber_area_exited"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
